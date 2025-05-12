@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import image3x3 from "./assets/image3x3.png";
 import image4x4 from "./assets/image4x4.png";
 import image5x5 from "./assets/image5x5.png";
 import connect4 from "./assets/connect4.png";
 
-import Board from "./Board";
+import Board from "./components/Board";
+import ModeList from "./components/ModeList";
 
 function GoBackButton({ setGame, setMode, setGameValue }) {
   const handleClick = (setGame, setMode) => {
@@ -109,56 +109,7 @@ export default function App() {
                 setMode={setMode}
                 setGameValue={null}
               />
-              <h2 className="main-subtitle">Choose a mode</h2>
-              <div className="game-list mode-div">
-                <div
-                  onClick={() => {
-                    handleClickSetMode("player");
-                  }}
-                  className="game-div"
-                >
-                  <h2 className="two-people-icon">
-                    <i class="fi fi-ss-people-pulling"></i>{" "}
-                  </h2>
-                  <p>Team Up!</p>
-                </div>
-                <div
-                  onClick={() => {
-                    handleClickSetMode("easy");
-                  }}
-                  className="game-div"
-                >
-                  <h2>
-                    <i class="fi fi-sr-walking"></i>VS{" "}
-                    <i class="fi fi-sr-microchip-ai"></i>
-                  </h2>
-                  <p>Easy</p>
-                </div>
-                <div
-                  onClick={() => {
-                    handleClickSetMode("medium");
-                  }}
-                  className="game-div"
-                >
-                  <h2>
-                    <i class="fi fi-sr-walking"></i>VS{" "}
-                    <i class="fi fi-sr-microchip-ai"></i>
-                  </h2>
-                  <p>Medium</p>
-                </div>
-                <div
-                  onClick={() => {
-                    handleClickSetMode("hard");
-                  }}
-                  className="game-div"
-                >
-                  <h2>
-                    <i class="fi fi-sr-walking"></i>VS{" "}
-                    <i class="fi fi-sr-microchip-ai"></i>
-                  </h2>
-                  <p>Hard</p>
-                </div>
-              </div>
+              <ModeList handleClickSetMode={handleClickSetMode} />
             </>
           )}
         </>
